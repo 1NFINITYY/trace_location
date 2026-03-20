@@ -3,26 +3,27 @@ import axios from "axios";
 
 function App() {
   const [data, setData] = useState(null);
-  const hasTracked = useRef(false); // ✅ prevents double API call
+  const hasTracked = useRef(false);
+
+  // ✅ get API URL from env
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    // ✅ Track visitor ONLY once
     if (!hasTracked.current) {
-      axios.get("http://localhost:5000/api/track")
+      axios.get(`${API_URL}/api/track`)
         .then(() => console.log("Tracked"))
         .catch(err => console.log("Track error:", err));
 
       hasTracked.current = true;
     }
 
-    // ✅ Fetch stats
-    axios.get("http://localhost:5000/api/stats")
+    axios.get(`${API_URL}/api/stats`)
       .then(res => {
         console.log("API DATA:", res.data);
         setData(res.data);
       })
       .catch(err => console.log("Stats error:", err));
-  }, []);
+  }, [API_URL]);
 
   return (
     <div style={{ padding: "20px", fontFamily: "Arial" }}>
@@ -32,7 +33,6 @@ function App() {
         <p>Loading...</p>
       ) : (
         <>
-          {/* ✅ Updated stats */}
           <h2>Total Visitors: {data.totalVisitors}</h2>
           <h3>Total Visits: {data.totalVisits}</h3>
 
