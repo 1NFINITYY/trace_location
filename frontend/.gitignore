@@ -1,0 +1,77 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+coverage/
+
+# Build output
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+
+# Mac system files
+.AppleDouble
+.LSOverride
+
+# Temporary files
+tmp/
+temp/
+
+# Cache
+.cache/
+
+# Next.js (if used)
+.next/
+
+# Parcel
+.cache/
+.parcel-cache/
+
+# React build
+build/
+
+# TypeScript
+*.tsbuildinfo
+
+# MongoDB data (if local)
+data/
+*.db
+
+# Firebase
+.firebase/
+
+# Docker
+.dockerignore
+
+# Misc
+*.tgz
+*.bak
+*.backup
